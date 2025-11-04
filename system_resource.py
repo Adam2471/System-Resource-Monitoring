@@ -81,7 +81,7 @@ class ResourceMonitorApp:
         ttk.Button(button_frame, text="❌ Keluar", command=self.confirm_exit).grid(row=0, column=3, padx=10)
 
         # Footer
-        footer = tk.Label(root, text="© 2025 System Resource Monitoring v1.1 | 312310301 All Rights Reserved", 
+        footer = tk.Label(root, text="© 2025 System Resource Monitoring v1.2 | 312310301 All Rights Reserved", 
                           bg="white", fg="gray", font=("Inter", 9))
         footer.pack(side="bottom", pady=5)
 
@@ -261,7 +261,7 @@ class ResourceMonitorApp:
 
         ttk.Button(about_window, text="⬅ Kembali", command=about_window.destroy).pack(pady=15)
 
-        footer = tk.Label(about_window, text="© 2025 System Resource Monitoring v1.1 | 312310301 All Rights Reserved", 
+        footer = tk.Label(about_window, text="© 2025 System Resource Monitoring v1.2 | 312310301 All Rights Reserved", 
                           bg="white", fg="gray", font=("Inter", 9))
         footer.pack(side="bottom", pady=5)
 
