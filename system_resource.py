@@ -18,6 +18,10 @@ from matplotlib.animation import FuncAnimation
 from PIL import Image, ImageTk, ImageDraw
 import datetime
 import os
+import sys
+
+# dapatkan path absolut 
+BASE_DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
 
 # === Fungsi Membuat Bingkai Foto Bulat ===
 def make_circle_image(path, size=(120, 120)):
@@ -38,7 +42,8 @@ class ResourceMonitorApp:
 
         # === Tambahkan Icon Aplikasi ===
         try:
-            self.root.iconbitmap("logo.ico")
+            # self.root.iconbitmap("logo.ico")
+            self.root.iconbitmap(os.path.join(BASE_DIR, "logo.ico"))
         except:
             print("⚠️ File icon (logo.ico) tidak ditemukan, menggunakan icon default.")
 
@@ -81,7 +86,7 @@ class ResourceMonitorApp:
         ttk.Button(button_frame, text="❌ Keluar", command=self.confirm_exit).grid(row=0, column=3, padx=10)
 
         # Footer
-        footer = tk.Label(root, text="© 2025 System Resource Monitoring v1.2 | 312310301 All Rights Reserved", 
+        footer = tk.Label(root, text="© 2025 System Resource Monitoring v1.3 | 312310301 All Rights Reserved", 
                           bg="white", fg="gray", font=("Inter", 9))
         footer.pack(side="bottom", pady=5)
 
@@ -158,7 +163,7 @@ class ResourceMonitorApp:
         sys_win.config(bg="white")
 
         try:
-            sys_win.iconbitmap("logo.ico")
+            sys_win.iconbitmap(os.path.join(BASE_DIR,"logo.ico"))
         except:
             pass
 
@@ -221,7 +226,7 @@ class ResourceMonitorApp:
         about_window.config(bg="white")
 
         try:
-            about_window.iconbitmap("logo.ico")
+            about_window.iconbitmap(os.path.join(BASE_DIR, "logo.ico"))
         except:
             pass
 
@@ -235,7 +240,8 @@ class ResourceMonitorApp:
         frame.pack(pady=10)
 
         try:
-            photo = make_circle_image("adambg.png", size=(110, 110))
+            # photo = make_circle_image("adambg.png", size=(110, 110))
+            photo = make_circle_image(os.path.join(BASE_DIR, "adambg.png"), size=(110, 110))
             photo_label = tk.Label(frame, image=photo, bg="white")
             photo_label.image = photo
             photo_label.grid(row=0, column=0, rowspan=6, padx=20)
@@ -261,7 +267,7 @@ class ResourceMonitorApp:
 
         ttk.Button(about_window, text="⬅ Kembali", command=about_window.destroy).pack(pady=15)
 
-        footer = tk.Label(about_window, text="© 2025 System Resource Monitoring v1.2 | 312310301 All Rights Reserved", 
+        footer = tk.Label(about_window, text="© 2025 System Resource Monitoring v1.3 | 312310301 All Rights Reserved", 
                           bg="white", fg="gray", font=("Inter", 9))
         footer.pack(side="bottom", pady=5)
 
